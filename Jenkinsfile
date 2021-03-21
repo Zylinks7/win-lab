@@ -7,7 +7,7 @@ pipeline {
         stage('Test Jenkins call Ansible'){
             steps {
                 sh'''
-                    sudo ansible-playbook -i /home/ec2-user/Winnie-Lab/Ansible/inventory/hosts -e "env=${ENVIRONMENT}"  /home/ec2-user/Winnie/Ansible/installnginx.yml
+                    sudo ansible-playbook -i /home/ec2-user/win-lab/Ansible/inventory/hosts -e "env=${ENVIRONMENT}"  /home/ec2-user/win-lab/Ansible/installnginx.yml
                 '''
             }
         }
