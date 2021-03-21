@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Stop Nginx
+      service:
+        name: nginx
+        state: stopped
+
+    - name: Ensure nginx is not installed
+      yum: 
+        name: nginx
+        state: absent

@@ -1,0 +1,29 @@
+---
+   - name: include variable file
+     include_vars: 
+       file: 'nginx-{{ env }}.yml'
+
+   - name: Add epel-release repo
+     yum:
+       name: amazon-linux-extras
+       state: present
+
+   - name: Install NginX
+     yum:
+       name: nginx
+       state: present
+
+   - name: Insert Index Page
+     template:
+       src: /home/ec2-user/Ansible/roles/nginx/files/demo-{{ env }}.html
+       dest: /usr/share/nginx/html/index.html
+
+   - name: Start NginX
+     service:
+       name: nginx
+       state: started
+
+   - name: Enable NginX Startup
+     service:
+       name: nginx
+       enabled: yes
