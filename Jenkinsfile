@@ -3,10 +3,6 @@ pipeline {
 		parameters{
 			string(name: "ENVIRONMENT", description: 'dev,prod', defaultValue: '')
 		}
-	options {
-		timestamps()
-		ansiColor('xterm')
-	}
 		
 	stages {
 		stage('Test Jenkins call Ansible'){
