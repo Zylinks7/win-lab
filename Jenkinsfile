@@ -21,14 +21,14 @@ pipeline {
 						'''	
 					}
 					else {
-						sh 'echo "Environment not found. Please try agin."'
+						sh 'echo "Environment not found. Please try again."'
 					}
 				}
 			}
 		}
 		stage('Clean WS') {
 			steps {
-			  cleanWs()
+				deleteDir()
 			}
 		}
 
